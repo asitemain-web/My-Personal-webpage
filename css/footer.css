@@ -1,0 +1,114 @@
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    background: linear-gradient(40deg, #d1cbff 0%, #ffffff 100%);
+
+}
+.footer-text{
+    font-weight: bold;
+}
+
+/* Dark mode footer with darker colors */
+:root.dark .site-footer {
+    background: linear-gradient(40deg, #1a1a2e 0%, #16213e 100%);
+    animation: gradientShift 3s ease-in-out infinite !important;
+    background-size: 300%;
+}
+
+.site-footer .container { 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Footer Social Links */
+.footer-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.footer-social-left,
+.footer-social-right {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease !important;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.footer-social-link:nth-child(1) { animation-delay: 0s; }
+.footer-social-link:nth-child(2) { animation-delay: 0.5s; }
+
+.footer-social-icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease !important;
+}
+
+/* Dark mode: make GitHub icon white */
+:root.dark .footer-social-link:first-child .footer-social-icon {
+    filter: brightness(0) invert(1);
+}
+
+.footer-social-link:hover {
+    transform: translateY(-6px) scale(1.05) !important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2) !important;
+    background: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+.footer-social-link:hover .footer-social-icon {
+    transform: scale(1.2) rotate(10deg) !important;
+}
+
+/* Smooth up and down animation */
+@keyframes floatUpDown {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-8px); 
+    }
+}
+
+.footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 22px;
+    border-radius: 4px;
+    background: linear-gradient(45deg, #8b5cf6, #ef4444, #3b82f6, #8b5cf6);
+    background-size: 300% 300%;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    animation: gradientShift 3s ease-in-out infinite !important;
+    font-weight: 100;
+    transition: all 0.3s ease !important;
+}
+
+.footer-cta-btn:hover { 
+    filter: brightness(1.1) !important;
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.35) !important;
+}
+
+a.footer-cta-btn:hover {
+    animation: gradientShift 1s ease-in-out infinite !important;
+}

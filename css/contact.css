@@ -1,0 +1,788 @@
+
+
+/* Contact Form Wrapper */
+.contact-form-wrapper {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    direction: rtl;
+}
+
+.form-container {
+    background: var(--bg);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: linear-gradient(90deg, var(--primary), #8b5cf6, #06b6d4);
+    border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-header h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.form-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Modern Contact Form */
+.modern-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease !important;
+    text-align: right;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--bg);
+    color: var(--text);
+    transition: all 0.3s ease !important;
+    outline: none;
+    direction: rtl;
+    text-align: right;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 11px 0px rgba(99, 102, 241, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+.form-group input:focus + .error-text,
+.form-group textarea:focus + .error-text {
+    opacity: 0;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.form-group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+/* Error States */
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #ef4444;
+    box-shadow: 0 0 6px 3px rgba(239, 68, 68, 0.3);
+}
+
+.form-group.error label {
+    color: #ef4444;
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease !important;
+    font-weight: 500;
+}
+
+.error-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    align-self: flex-start;
+    min-width: 180px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3) !important;
+}
+
+.submit-btn:active {
+    transform: translateY(0) !important;
+}
+
+.submit-btn:disabled {
+    opacity: 0.8 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+.submit-btn.loading .btn-text {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+}
+
+.submit-btn.loading .btn-loading {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.submit-btn.success {
+    background: linear-gradient(135deg, #10b981, #059669) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+}
+
+.btn-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease !important;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg) !important; }
+    to { transform: rotate(360deg) !important; }
+}
+
+/* Success Animation */
+@keyframes successPulse {
+    0% {
+        transform: scale(1) !important;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+    }
+    50% {
+        transform: scale(1.05) !important;
+        box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4) !important;
+    }
+    100% {
+        transform: scale(1.05) !important;
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+    }
+}
+
+.submit-btn.success {
+    animation: successPulse 0.6s ease-out !important;
+}
+
+/* Messages Display */
+.messages-display {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    background: var(--bg);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    direction: rtl;
+}
+
+.messages-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    text-align: center;
+    font-weight: 600;
+}
+
+.messages-list {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+}
+
+.messages-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages-list::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+}
+
+.messages-list::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.messages-list::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Inline Edit Styles */
+.edit-message-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.edit-message-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 80px;
+    background: var(--bg);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.edit-message-input:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 14px 4px rgba(99, 102, 241, 0.3);
+}
+
+.btn-save-edit {
+    background: var(--primary);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+}
+
+.btn-save-edit:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.btn-save-edit img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1); /* Invert tick color to white */
+}
+
+/* Remove Modal Styles */
+.remove-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.remove-modal {
+    background: var(--bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--bg-secondary);
+    color: var(--text);
+}
+
+.remove-modal h3 {
+    margin: 0 0 1rem 0;
+    color: var(--text);
+    font-size: 1.25rem;
+}
+
+.remove-modal p {
+    margin: 0 0 2rem 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 2px solid var(--border);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: var(--bg-secondary);
+    color: var(--text);
+    border-color: var(--text-secondary);
+}
+
+.btn-confirm-remove {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-confirm-remove:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-confirm-remove:active {
+    transform: translateY(0);
+}
+
+/* Warning Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    max-width: 400px;
+    width: 90%;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-content {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.notification-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.notification-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+}
+
+.notification-icon svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Support external SVGs/images for icons */
+.notification-icon img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1) brightness(100%);
+}
+
+.notification-message {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.notification-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.notification-close img {
+    width: 25px;
+    height: 25px;
+    filter: invert(1) brightness(100%);
+}
+
+
+.notification-close:active {
+    transform: scale(0.95);
+}
+
+/* Animation for notification appearance */
+@keyframes notificationSlideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes notificationSlideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.no-messages {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 2rem;
+}
+
+.message-item {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease !important;
+    direction: rtl;
+    text-align: right;
+}
+
+.message-item:hover {
+    transform: translateY(-4px) scale(1.01) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-right-color: var(--primary-dark) !important;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px #cdcdcd solid;
+}
+
+.message-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.message-name {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.message-email {
+    color: var(--primary);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.message-time {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.message-content {
+    color: var(--text);
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.message-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-remove {
+    background: none;
+    border: 2px solid;
+    border-radius: 0.375rem;
+    padding: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.btn-edit {
+    border-color: #10b981;
+    background: #10b981;
+}
+
+.btn-edit:hover {
+    background: #059669 !important;
+    border-color: #059669 !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4) !important;
+}
+
+.btn-edit:active {
+    transform: translateY(-1px) scale(1.05) !important;
+    transition: all 0.1s ease !important;
+}
+
+.btn-remove {
+    border-color: #ef4444;
+    background: #ef4444;
+}
+
+.btn-remove:hover {
+    background: #dc2626 !important;
+    border-color: #dc2626 !important;
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4) !important;
+}
+
+.btn-remove:active {
+    transform: translateY(-1px) scale(1.05) !important;
+    transition: all 0.1s ease !important;
+}
+
+.btn-edit img,
+.btn-remove img {
+    width: 14px;
+    height: 14px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease !important;
+}
+
+.btn-edit:hover img,
+.btn-remove:hover img {
+    transform: scale(1.1) !important;
+}
+
+
+
+
+
+
+/* Contact Cards */
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.contact-card {
+    flex: 1 1 240px;
+    width: clamp(240px, 28vw, 300px);
+    background: var(--bg);
+    padding: 10px 20px;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--shadow-xl);
+}
+
+.contact-card:hover::before {
+    transform: scaleX(1);
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease !important;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+
+.contact-icon img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    transition: all 0.3s ease !important;
+}
+
+.contact-card:hover .contact-icon img {
+    transform: scale(1.2) rotate(10deg);
+}
+
+
+.contact-card h3 {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    word-break: break-all;
+}
+
+/* Invert GitHub SVG colors in dark mode */
+:root.dark .contact-card:first-child .contact-icon img {
+    filter: invert(1);
+}

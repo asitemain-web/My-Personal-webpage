@@ -1,0 +1,178 @@
+/* Responsive Design - Handle responsiveness yourself */
+
+/* Header Responsive Styles */
+/* 700px and above: No changes - header works as normal */
+/* 699px and below: Hide nav links, show hamburger menu */
+
+@media (max-width: 699px) {
+    /* Hide navigation links */
+    .nav-links {
+        display: none !important;
+    }
+    
+    /* Show hamburger menu */
+    .hamburger-menu {
+        display: block !important;
+        height: 24px;
+        width: 24px;
+        margin-right: 10px;
+    }
+}
+
+/* Home Section Responsive Styles */
+/* 610px and above: No changes - home section works as normal */
+/* 609px and below: Make elements a little bit smaller */
+
+@media (max-width: 609px) {
+    /* Reduce intro text font size */
+    .intro-line {
+        font-size: 32px !important;
+    }
+    
+    /* Reduce user avatar size */
+    .user-circle {
+        width: 180px !important;
+        height: 180px !important;
+    }
+}
+
+/* Home Section - Extra Small Screens */
+/* 420px and below: Make elements even smaller */
+
+@media (max-width: 420px) {
+    /* Further reduce intro text font size */
+    .intro-line {
+        font-size: 24px !important;
+    }
+    
+    /* Further reduce user avatar size */
+    .user-circle {
+        width: 140px !important;
+        height: 140px !important;
+    }
+}
+
+/* About Section Responsive Styles */
+/* 620px and above: No changes - about section works as normal */
+/* 619px and below: Stack vertically and center align text */
+
+@media (max-width: 619px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-text p{
+        text-align: center;
+        font-size: 13px;
+        line-height: 1.8;
+    }
+}
+
+/* Skills Section Responsive Styles */
+/* Desktop: 3 skills per row (default) */
+/* Tablet: 2 skills per row */
+/* Mobile: 1 skill per row */
+
+/* Tablet: 2 skills per row */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 skill per row */
+@media (max-width: 767px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contact Section Responsive Styles */
+/* Tablet and below: Adjust form layout and spacing */
+
+@media (max-width: 768px) {
+    /* Reduce form container padding */
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* Stack form row fields vertically on tablets and mobile */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Reduce form header font sizes */
+    .form-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .form-header p {
+        font-size: 1rem;
+    }
+    
+    /* Center submit button on mobile */
+    .submit-btn {
+        align-self: center;
+        width: 100%;
+    }
+    
+    /* Adjust contact cards spacing */
+    .contact-cards {
+        gap: 1.5rem;
+    }
+    
+    /* Reduce messages display padding */
+    .messages-display {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile: Further adjustments for small screens */
+@media (max-width: 480px) {
+    /* Further reduce form container padding */
+    .form-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Smaller form header on mobile */
+    .form-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .form-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Smaller input padding on mobile */
+    .form-group input,
+    .form-group textarea {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Reduce messages display padding */
+    .messages-display {
+        padding: 1rem;
+    }
+    
+    .messages-title {
+        font-size: 1.25rem;
+    }
+    
+    /* Better spacing for message items on mobile */
+    .message-item {
+        padding: 1rem;
+    }
+    
+    .message-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .message-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

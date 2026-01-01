@@ -1,0 +1,35 @@
+/* Home/Hero */
+.hero {
+	 display: flex;
+	 align-items: center;
+	 max-width: 1000px;
+	 direction: rtl;
+	 justify-content: space-between; 
+	}
+.intro-text {
+	 display: flex;
+	 flex-direction: column;
+	 gap: 8px; text-align: right;
+	 }
+.intro-line {
+	 font-size: 48px;
+	 font-weight: 700;
+	 line-height: 1.1;
+	 margin: 0;
+	 }
+.name-animated {
+	 background: linear-gradient(45deg, #8b5cf6, #ef4444, #3b82f6, #8b5cf6); background-size: 300% 300%; -webkit-background-clip: text;
+	  background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	  animation: gradientShift 3s ease-in-out infinite !important; }
+.user-avatar {
+	 display: flex;
+	  justify-content: left;
+	  align-items: center;
+	 }
+.user-circle {
+	 width: 260px;
+	 height: 260px;
+	 animation: float 3s ease-in-out infinite!important;
+	 }
+

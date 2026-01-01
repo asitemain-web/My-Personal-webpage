@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali - طراح و توسعه‌دهنده وب</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="icon/user.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav">
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="نمایش منوی موبایل">
+                <img src="icon/hamburer-menu.svg" width="24" height="24" alt="منو">
+            </button>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#home" class="nav-link active" data-scroll>خانه</a>
+                <a href="#about" class="nav-link" data-scroll>درباره من</a>
+                <a href="#skills" class="nav-link" data-scroll>مهارت‌ها</a>
+                <a href="#projects" class="nav-link" data-scroll>پروژه‌ها</a>
+                <a href="#contact" class="nav-link" data-scroll>تماس</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="تغییر حالت تاریک/روشن" title="تغییر تم">
+                <img class="icon-sun" src="icon/light-mode.svg" width="20" height="20" alt="حالت روشن">
+                <img class="icon-moon" src="icon/dark-mode.svg" width="20" height="20" alt="حالت تاریک">
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-grid">
+                <a href="#home" data-scroll class="mobile-menu-item">خانه</a>
+                <a href="#about" data-scroll class="mobile-menu-item">درباره من</a>
+                <a href="#skills" data-scroll class="mobile-menu-item">مهارت‌ها</a>
+                <a href="#projects" data-scroll class="mobile-menu-item">پروژه‌ها</a>
+                <a href="#contact" data-scroll class="mobile-menu-item">تماس</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section style="max-width: 1100px; margin: 0 auto; direction: rtl;" id="home">
+            <div class="container hero">
+                <div class="intro-text">
+                    <h1 class="intro-line">سلام</h1>
+                    <h1 class="intro-line name-animated">من علی هستم</h1>
+                    <h1 class="intro-line">طراح وب !</h1>
+                </div>
+                <div class="user-avatar">
+                    <img src="icon/user-circle.svg" alt="Ali" class="user-circle">
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">درباره من</h2>
+                <div class="about-content">
+                    <div class="about-avatar">
+                        <img src="icon/user.svg" alt="Ali" class="about-user-circle">
+                    </div>
+                        <div class="about-text">
+                            <p>سلام، من علی هستم؛ طراح وب 19 ساله با علاقه‌ی زیاد به بطراحی سایت. روی HTML و CSS مسلط هستم و از ساختن طراحی‌های تمیز و مدرن لذت می‌برم.همیشه در حال یادگیری بیشتر درباره‌ی توسعه وب، و اغلب از ابزارهای هوش مصنوعی برای کشف فریم‌ورک‌های JavaScript و مفاهیم بک‌اند استفاده می‌کنم.</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">مهارت‌ها</h2>
+                <div class="skills-grid" id="skillsGrid"></div>
+            </div>
+        </section>
+        <hr>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">پروژه‌های من</h2>
+                <div class="projects-grid" id="projectsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Project Preview Modal -->
+        <div class="project-modal-overlay" id="projectModal" aria-hidden="true">
+            <div class="project-modal">
+                <button class="project-modal-close" id="projectModalClose" aria-label="بستن پیش‌نمایش">
+                    <img src="icon/cross.svg" alt="بستن">
+                </button>
+                <div class="project-modal-header">
+                    <div class="project-modal-title" id="projectModalTitle">عنوان پروژه</div>
+                    <div class="project-modal-sub" id="projectModalSub">جزئیات و توضیحات پروژه اینجا نمایش داده می‌شود.</div>
+                    <div class="project-modal-devices">
+                        <button class="device-btn active" data-device="mobile" title="موبایل">
+                            <img src="icon/mobile.svg" alt="موبایل">
+                            <span>موبایل</span>
+                        </button>
+                        <button class="device-btn" data-device="tablet" title="تبلت">
+                            <img src="icon/tablet.svg" alt="تبلت">
+                            <span>تبلت</span>
+                        </button>
+                        <button class="device-btn" data-device="desktop" title="دسکتاپ">
+                            <img src="icon/desktop.svg" alt="دسکتاپ">
+                            <span>دسکتاپ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="project-modal-body">
+                    <div class="device-stage" id="deviceStage">
+                        <div class="device-frame">
+                            <iframe id="projectFrame" title="پیش‌نمایش پروژه" src="about:blank"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">تماس</h2>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h3>در تماس باشید</h3>
+                            <p>پروژه‌ای در ذهن دارید؟ بیایید درباره این‌که چطور می‌توانیم با هم کار کنیم صحبت کنیم!</p>
+                        </div>
+                        
+                        <form class="modern-contact-form" id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">نام و نام خانوادگی</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                    <span class="error-text" id="fullNameError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">آدرس ایمیل</label>
+                                    <input type="email" id="email" name="email" required>
+                                    <span class="error-text" id="emailError"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">پیام</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="درباره پروژه‌تان برای من بنویسید..."></textarea>
+                                <span class="error-text" id="messageError"></span>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">ارسال پیام</span>
+                                <span class="btn-loading">
+                                    <svg class="loading-spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="60" stroke-dashoffset="60">
+                                            <animate attributeName="stroke-dashoffset" dur="1s" values="60;0" repeatCount="indefinite"/>
+                                        </circle>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Messages Display Area -->
+                <div class="messages-display">
+                    <h3 class="messages-title">پیام‌های اخیر</h3>
+                    <div class="messages-list" id="messagesList">
+                        <div class="no-messages">هنوز پیامی ثبت نشده است. اولین پیام خود را از فرم بالا ارسال کنید!</div>
+                    </div>
+                </div>
+
+                <!-- Contact Cards -->
+                <div class="contact-cards" id="contactCards">
+                    <!-- Contact cards will be rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Scripts - Load in order -->
+    <script src="js/utils.js"></script>
+    <script src="js/data/skills-data.js"></script>
+    <script src="js/data/projects-data.js"></script>
+    <script src="js/data/contact-data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
