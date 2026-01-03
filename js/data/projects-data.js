@@ -5,7 +5,7 @@ const projectsData = [
         image: 'projects/me.png',
         imageAlt: 'Personal website preview',
         preview: '"C:/Users/Admin/Documents/Personal-webpage/index.html"',
-        link: '"C:/Users/Admin/Documents/Personal-webpage/index.html"',
+        link: '"https://asitemain-web.github.io/My-Personal-webpage/"',
         description: 'یک وب‌سایت شخصی حرفه‌ای که داستان من، خدماتم و راه‌های ارتباطی را با ترنزیشن‌های نرم و پشتیبانی از حالت تیره نمایش می‌دهد.',
         tags: [
             'بخش معرفی اولیه',
@@ -30,4 +30,5 @@ const projectsData = [
         ]
     }
 ];
+
 
